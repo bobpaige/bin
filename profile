@@ -6,4 +6,8 @@ then
 	export PREVPATH=$PATH
 fi
 
-PATH=`pwd`:$PREVPATH
+PATH=~/bin/:$PATH
+
+# Git command prompt replacement
+source ~/bin/profile-git-completion
+
