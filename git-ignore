@@ -1,0 +1,26 @@
+#!/bin/bash
+
+## Usage:
+##	$0		Display help
+##	$0 {filenames}	Add files to the git ignore file
+##
+
+if [ $# -eq 0 ]
+then
+	help $0
+	exit 0
+fi
+
+if [ ! -e .gitignore ]
+then
+	touch .gitignore
+fi
+
+for FILENAME in $*
+do
+	if ! grep -q $FILENAME .gitignore
+	then
+		echo $FILENAME >> .gitignore
+		echo Added $FILENAME to .gitignore
+	fi
+done
